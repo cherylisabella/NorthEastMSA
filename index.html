@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Have your say on AI in the North East</title>
+  <meta name="description" content="A short, anonymous questionnaire about everyday AI and the North East AI Growth Zone. Takes about 3 to 5 minutes.">
+  <meta name="theme-color" content="#231f20">
+
+  <meta name="referrer" content="no-referrer">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to the main content</a>
+
+  <header class="site-header">
+    <div id="test-banner" class="test-banner" role="status" hidden>
+      <strong>Preview mode.</strong> The Google Form isn’t connected yet, so answers
+      are <strong>not</strong> being saved. This message disappears automatically once you
+      add your form details to <code>script.js</code>.
+    </div>
+    <div class="site-header__inner">
+      <a class="brand" href="./" aria-label="North East AI Growth Zone questionnaire – start page">
+        <img id="brand-logo" class="brand__logo" src="logo.svg" alt="North East Mayoral Strategic Authority" hidden>
+        <span class="brand__text">AI Growth Zone <span class="brand__text-light">· Have your say</span></span>
+      </a>
+    </div>
+  </header>
+
+  <div id="progress-wrap" class="progress-wrap" role="region" aria-label="Your progress" hidden>
+    <div class="progress-wrap__inner">
+      <p id="progress-label" class="progress__label">Question 1 of 8</p>
+      <div id="progress-bar" class="progress__track" role="progressbar" aria-label="Questionnaire progress"
+           aria-valuemin="0" aria-valuemax="8" aria-valuenow="0">
+        <div id="progress-fill" class="progress__fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" class="page">
+    <h1 class="sr-only">North East AI Growth Zone questionnaire</h1>
+
+    <noscript>
+      <div class="notice notice--error">
+        This questionnaire needs JavaScript to work. Please turn JavaScript on in your browser
+        and reload the page.
+      </div>
+    </noscript>
+
+    <section id="screen-intro" class="screen" aria-labelledby="intro-title">
+      <div class="hero">
+        <svg class="hero__arrow" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+          <path d="M50 30H170V150H134V92L62 164L36 138L108 66H50Z" fill="currentColor"/>
+        </svg>
+
+        <div class="hero__content">
+          <p class="hero__eyebrow">North East AI Growth Zone</p>
+          <h2 id="intro-title" class="hero__title" tabindex="-1">What do you think about AI in the North East?</h2>
+          <!-- EDIT HERE: the introduction paragraph -->
+          <p class="hero__lead">
+            We’d like to hear your views on everyday AI and the North East AI Growth Zone.
+            You don’t need to know anything about AI to take part. There are no right or wrong answers.
+          </p>
+
+          <ul class="chips" aria-label="About this questionnaire">
+            <li class="chip">About 3 to 5 minutes</li>
+            <li class="chip">Anonymous</li>
+            <li class="chip">Skip anything you like</li>
+          </ul>
+
+          <button type="button" id="start-button" class="button button--hero">
+            Start the questionnaire
+            <svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 7h10v10M17 7 7 17" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <details class="info-card">
+          <summary>What do we mean by “AI”?</summary>
+          <!-- EDIT HERE: plain-English explanation of AI -->
+          <p>
+            AI (artificial intelligence) is computer software that can spot patterns in lots of
+            information, then use them to make suggestions, predictions or even new text and
+            images. If your phone suggests the next word you type, or your music app suggests a
+            song you might like, that’s AI at work.
+          </p>
+        </details>
+
+        <details class="info-card">
+          <summary>How will my answers be used?</summary>
+          <!--
+            EDIT HERE: check every sentence below is true for the project, and add who is
+            running it, how long answers are kept and a contact address.
+          -->
+          <ul class="plain-list">
+            <li>It’s anonymous. We don’t ask for your name, email address or any contact details.</li>
+            <li>Please don’t put personal details (yours or anyone else’s) in the boxes where you type.</li>
+            <li>Nothing is sent until you reach the end and choose <strong>Send my answers</strong>. You can close the page at any time.</li>
+            <li>Answers are collected using Google Forms.</li>
+          </ul>
+          <!-- EDIT HERE: change this link to the privacy notice that applies to the project. -->
+          <p><a href="https://www.northeast-ca.gov.uk/privacy-policy" target="_blank" rel="noopener noreferrer">Read the privacy policy (opens in a new tab)</a></p>
+        </details>
+      </div>
+    </section>
+
+    <form id="questionnaire" class="screen" novalidate hidden autocomplete="off">
+      <div id="step-host" class="card" data-accent="blue"></div>
+
+      <!-- Honeypot: a hidden field that real people never fill in; some spam robots do. -->
+      <div class="hp" aria-hidden="true">
+        <label>Leave this empty <input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      <div id="form-error" class="notice notice--error" role="alert" hidden></div>
+
+      <div class="nav">
+        <button type="button" id="back-button" class="button button--ghost">
+          <svg class="button__icon button__icon--back" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back
+        </button>
+        <button type="submit" id="next-button" class="button button--primary">Next</button>
+      </div>
+    </form>
+
+    <section id="screen-done" class="screen" aria-labelledby="done-title" hidden>
+      <div class="card card--done" data-accent="green">
+        <div class="done__tick" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h2 id="done-title" class="step__title" tabindex="-1">Thank you!</h2>
+        <p id="done-message" class="step__hint"></p>
+        <details id="debug-box" class="debug-box" hidden>
+          <summary>Preview mode: what would have been sent</summary>
+          <pre id="debug-output"></pre>
+        </details>
+        <div class="done__actions">
+          <button type="button" id="restart-button" class="button button--ghost">Start a new response</button>
+          <a class="button button--primary" href="https://www.northeast-ca.gov.uk/" target="_blank" rel="noopener noreferrer">Visit the North East MSA website</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>Your answers are anonymous. Please don’t include personal details.</p>
+      <p><a href="https://www.northeast-ca.gov.uk/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy policy</a>
+         · <a href="https://www.northeast-ca.gov.uk/accessibility-statement" target="_blank" rel="noopener noreferrer">Accessibility</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
